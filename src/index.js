@@ -7,5 +7,5 @@ initNav();
 let toDos = toDoList.getToDos()
 for (let i = 0; i < toDos.length; i++) {
     createCard();
-    fillCard(toDos[i].title, toDos[i].task, toDos[i].dueDate, toDos[i].prio)
+    fillCard(toDos[i].task, toDos[i].dueDate, toDos[i].prio)
 }

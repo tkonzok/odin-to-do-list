@@ -1,3 +1,6 @@
+import Checkmark from './check-square.svg';
+import Cross from './x.svg';
+
 const initNav = () => {
     const navItems = ['Project 1', 'Project 2', 'Project 3'];
     const navbar = document.getElementById('nav-elements');
@@ -15,36 +18,37 @@ const createCard = () => {
     const card = document.createElement('div');
     card.classList.add('card');
     container.appendChild(card);
-    const title = document.createElement('h4');
-    card.appendChild(title);
     const task = document.createElement('p');
+    task.classList.add('task');
     card.appendChild(task);
     const dueDate = document.createElement('p');
+    dueDate.classList.add('due-date');
     card.appendChild(dueDate);
     const prio = document.createElement('p');
+    prio.classList.add('prio');
     card.appendChild(prio);
-    const btnDiv = document.createElement('div');
-    btnDiv.classList.add('card-icons')
-    card.appendChild(btnDiv);
-    const doneBtn = document.createElement('i');
-    doneBtn.textContent = '✓'
-    btnDiv.appendChild(doneBtn);
-    const editBtn = document.createElement('i');
-    editBtn.textContent = 'E'
-    btnDiv.appendChild(editBtn);
-    const deleteBtn = document.createElement('i');
-    deleteBtn.textContent = 'D'
-    btnDiv.appendChild(deleteBtn);
+
+    const checkmark = new Image();
+    checkmark.src = Checkmark;
+    const cross = new Image();
+    cross.src = Cross;
+
+    const done = document.createElement('i');
+    done.classList.add('done-btn')
+    card.appendChild(done);
+    done.appendChild(checkmark)
+    const dlt = document.createElement('i');
+    dlt.classList.add('delete-btn')
+    card.appendChild(dlt);
+    dlt.appendChild(cross);
 }
 
-const fillCard = (tTitle, tTask, tDueDate, tPrio) => {
-    const title = document.querySelector('#card-container > div:last-child > h4');
-    title.textContent = tTitle;
-    const task = document.querySelector('#card-container > div:last-child > p:nth-child(2)');
+const fillCard = (tTask, tDueDate, tPrio) => {
+    const task = document.querySelector('#card-container > div:last-child > .task');
     task.textContent = tTask;
-    const dueDate = document.querySelector('#card-container > div:last-child > p:nth-child(3)');
+    const dueDate = document.querySelector('#card-container > div:last-child > .due-date');
     dueDate.textContent = tDueDate;
-    const prio = document.querySelector('#card-container > div:last-child > p:nth-child(4)');
+    const prio = document.querySelector('#card-container > div:last-child > .prio');
     prio.textContent = tPrio;
 }
 
