@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ysabeau+SC:wght@500&display=swap');
+
+body {
+    height: 100vh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 50px 75px 1fr;
+    font-family: 'Roboto', sans-serif;
+}
+
+div.navbar {
+    grid-row: span 3;
+    background-color: #609ea2;
+    color: #fff;
+    font-size: 24px;
+}
+
+div.navbar > * {
+    margin: 2rem;
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.home {
+    padding-bottom: 1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.search-container {
+    flex: 1;
+}
+
+.searchbar {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    width: min(100%, 500px);
+    border-radius: 1rem;
+    border: 0px;
+    background-color: #f0eeed;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.sub-header div {
+    display: flex;
+    gap: 1rem;
+}
+
+.sub-header>div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.sub-header>div:first-child div {
+    display: block;
+}
+
+.sub-header button {
+    background-color: #609ea2;
+    color: #fff;
+    border-radius: 1rem;
+    border: 0;
+    padding: 0.3rem;
+    width: 80px;
+}
+
+div.content {
+    background-color: #f0eeed;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, min(350px));
+}
+
+.card {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0.5rem;
+}
+
+.card-container .card {
+    border-left: 10px solid #c92c6d;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.card .card-icons {
+    text-align: end;
+}
+
+/*
+#f0eeed = hellgrau
+#609ea2 = Petrol
+#c92c6d = Pink
+#332c39 = Schwarz
+*/
