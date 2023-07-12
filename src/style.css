@@ -5,6 +5,7 @@ body {
 }
 
 main {
+    height: 100%;
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 50px 1fr;
@@ -19,12 +20,13 @@ div.navbar {
 }
 
 div.navbar > * {
-    margin: 2rem;
+    margin: 100px 2rem 2rem;
 }
 
 ul, li {
     text-decoration: none;
     list-style: none;
+    margin-bottom: 20px;
 }
 
 .home {
@@ -122,6 +124,29 @@ div.content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#done-card-container .card {
+    color: grey;
+    text-decoration: line-through;
+}
+
+#done-card-container .card .done-btn,
+#done-card-container .card .delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#done-card-container .card .done-btn::after,
+#done-card-container .card .delete-btn::after {
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .task {
