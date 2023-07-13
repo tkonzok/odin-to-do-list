@@ -1,6 +1,5 @@
 import Checkmark from './check-square.svg';
 import Cross from './x.svg';
-import { toDoList } from './todos';
 import { eventHandler } from './index';
 
 const initNav = () => {
@@ -102,4 +101,14 @@ const fillCard = (card, tTask, tDueDate, tPrio) => {
     prio.classList.add(tPrio);
 }
 
-export { initNav, initContent, clearCards, createToDoCard, createDoneCard, fillCard };
+const checkDate = (date) => {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    return ((date.split('.')[2] == year && date.split('.')[1] == month && date.split('.')[0] < day) || 
+    (date.split('.')[2] == year && date.split('.')[1] < month) ||
+    date.split('.')[2] < year);
+}
+
+export { initNav, initContent, clearCards, createToDoCard, createDoneCard, fillCard, checkDate };
