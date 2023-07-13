@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ysabeau+SC:wght@500&display=swap');
 
+:root {
+    --form-background: rgb(0,0,0,0.4);
+}
+
 body {
     height: 100vh;
 }
@@ -17,6 +21,7 @@ div.navbar {
     background-color: #609ea2;
     color: #fff;
     font-size: 24px;
+    z-index: 20;
 }
 
 div.navbar > * {
@@ -56,8 +61,14 @@ input {
     background-color: #f0eeed;
 }
 
-div.content {
+div.content:not(.form-bg) {
     background-color: #f0eeed;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.form-bg {
+    background-color: var(--form-background);
     padding: 3rem;
     gap: 3rem;
 }
@@ -95,6 +106,11 @@ div.content {
     position: relative;
 }
 
+.add-button:hover {
+    width: 42px;
+    height: 42px;
+}
+
 .add-button::before,
 .add-button::after {
     position: absolute;
@@ -124,6 +140,14 @@ div.content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#card-container .card .done-btn:hover {
+    filter: invert(62%) sepia(5%) saturate(3339%) hue-rotate(135deg) brightness(95%);
+}
+
+#card-container .card .delete-btn:hover {
+    filter: invert(27%) sepia(63%) saturate(2206%) hue-rotate(309deg) brightness(86%);
 }
 
 #done-card-container .card {
@@ -159,12 +183,78 @@ div.content {
 
 .prio {
     width: 50px;
+    text-align: center;
+    font-weight: 700;
+    padding: 3px 0;
+    border-radius: 3px;
+    margin-right: 3px;
+}
+
+#card-container .low {
+    background-color: #609ea2;
+    color: #fff;
+}
+
+#card-container .mid {
+    background-color: #9d9c9b;
+    color: #fff;
+}
+
+#card-container .high {
+    background-color: #c92c6d;
+    color: #fff;
 }
 
 .done-btn, .delete-btn {
     border: 0;
     margin-left: 6px;
 }
+
+.form-div {
+    display: block;
+    position: fixed;
+    padding-top: 140px;
+    z-index: 10;
+    left: 0px;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--form-background);
+    justify-items: center;
+    align-items: center;
+}
+
+form {
+    background-color: #f0eeed;
+    margin-left: 340px;
+    padding: 20px 40px 20px 20px;
+    border: 1px solid #f0eeed;
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+}
+
+input {
+    border: 1px solid;
+    height: 2rem;
+    padding-left: 1rem;
+}
+
+#submit-btn {
+    border: 1px solid;
+    height: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1.25rem;
+    background-color: #609ea2;
+    color: #f0eeed;
+    font-weight: bold;
+}
+
 
 /*
 #f0eeed = hellgrau

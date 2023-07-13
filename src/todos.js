@@ -1,3 +1,5 @@
+import { format, parseISO } from 'date-fns';
+
 const toDoList = (() => {
     function ToDo(task, dueDate, prio) {
         this.task = task;
@@ -5,12 +7,14 @@ const toDoList = (() => {
         this.prio = prio;
     }
 
+    const today = new Date()
+
     let myToDos = [
-        new ToDo('Task 1', '1', 'low'),
-        new ToDo('Task 2', '1', 'mid'),
-        new ToDo('Task 3', '1', 'low'),
-        new ToDo('Task 4', '1', 'high'),
-        new ToDo('Task 5', '1', 'high'),
+        new ToDo('Task 1', format(today.setDate(today.getDate() - 1), 'dd.MM.yyyy'), 'low'),
+        new ToDo('Task 2', format(today.setDate(today.getDate() + 1), 'dd.MM.yyyy'), 'mid'),
+        new ToDo('Task 3', format(today.setDate(today.getDate() + 1), 'dd.MM.yyyy'), 'low'),
+        new ToDo('Task 4', format(today.setDate(today.getDate() + 1), 'dd.MM.yyyy'), 'high'),
+        new ToDo('Task 5', format(today.setDate(today.getDate() + 1), 'dd.MM.yyyy'), 'high'),
     ]
 
     let doneToDos = [
@@ -23,20 +27,23 @@ const toDoList = (() => {
 
     const getDone = () => doneToDos;
 
-    const addToDo = (task) => myToDos.push(task);
+    const addToDo = (task, date, prio) => myToDos.push(new ToDo(task, format(parseISO(date), "dd.MM.yyyy"), prio));
 
     const addDone = (task) => doneToDos.push(task);
 
-    function markAsDone(taskId) {
+    const remove = (taskId) => myToDos.splice(taskId, 1);
+
+    function moveDone(taskId) {
         addDone(myToDos[taskId]);
-        myToDos.splice(taskId, 1)
+        remove(taskId);
     }
 
     return {
-        markAsDone,
         getToDos,
         getDone,
-        addToDo
+        addToDo,
+        moveDone,
+        remove
     };
 })();
 
