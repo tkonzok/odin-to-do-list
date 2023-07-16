@@ -1,5 +1,4 @@
 import { eventHandler } from './index';
-import { toDoList } from './todos';
 import { format } from 'date-fns';
 
 const formHandler = (() => {

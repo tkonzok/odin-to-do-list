@@ -4,8 +4,11 @@ import { eventHandler } from './index';
 
 const initNav = () => {
     const navItems = ['Project 1', 'Project 2', 'Project 3'];
+    const navHead = document.querySelector('.nav-head');
+    navHead.addEventListener('click', () => {toggleVisibility(['.nav-head #head', '#nav-elements > ul'])});
     const navbar = document.getElementById('nav-elements');
     const list = document.createElement('ul');
+    list.classList.add('invisible');
     navbar.appendChild(list);
     let listItems = '';
     navItems.forEach((item) => {
@@ -111,4 +114,11 @@ const checkDate = (date) => {
     date.split('.')[2] < year);
 }
 
-export { initNav, initContent, clearCards, createToDoCard, createDoneCard, fillCard, checkDate };
+const toggleVisibility = (selectors) => {
+    selectors.forEach((selector) => {
+        const element = document.querySelector(selector);
+    element.classList.toggle('invisible')
+    });
+}
+
+export { initNav, initContent, clearCards, createToDoCard, createDoneCard, fillCard, checkDate, toggleVisibility };
